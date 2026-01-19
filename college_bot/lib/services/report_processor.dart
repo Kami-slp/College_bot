@@ -326,20 +326,7 @@ class ReportProcessor {
       final group = _parser.getStringValue(row['Группа']) ?? 
                     _parser.getStringValue(row['Group']) ?? '';
 
-      double? percentageValue = _parser.getDoubleValue(row['Percentage Homework']) ?? 
-                               _parser.getDoubleValue(row['Процент выполнения ДЗ']) ?? 
-                               _parser.getDoubleValue(row['% выполнения']);
-
-      if (percentageValue == null) {
-        for (var entry in row.entries) {
-          final key = entry.key.toLowerCase();
-          if ((key.contains('percentage') && key.contains('homework')) ||
-              (key.contains('процент') && (key.contains('дз') || key.contains('homework')))) {
-            percentageValue = _parser.getDoubleValue(entry.value);
-            if (percentageValue != null) break;
-          }
-        }
-      }
+      double? percentageValue = _parser.getDoubleValue(row['Percentage Homework']);
 
       if (percentageValue != null && percentageValue < 70.0) {
         int submitted = _parser.getIntValue(row['Получено']) ?? 
