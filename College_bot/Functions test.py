@@ -89,7 +89,7 @@ def Filter_topics_name(file_path):
 
 
 
-def Show_Amount_of_doppelstunden_ja_das_ist_Deutch(file_path):
+def count_lessons_per_subject(file_path):
     df = pd.read_excel(file_path)
     records = []
 
@@ -109,7 +109,7 @@ def Show_Amount_of_doppelstunden_ja_das_ist_Deutch(file_path):
     )
     return result
 
-print(Show_Amount_of_doppelstunden_ja_das_ist_Deutch(file_path_timetable))
+print(count_lessons_per_subject(file_path_timetable))
 
 #df = pd.read_excel(file_path_homework_Report,header=[0, 1])
 #print(df.columns.tolist())

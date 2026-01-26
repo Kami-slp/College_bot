@@ -35,6 +35,7 @@ def filter_homework_classwork(file_path):
         (df['Homework'] <= 1) &
         (df['Classroom'] <= 3)
         ]
+    # вот хз какое здесь условие поставить по тз не понятно если что смогу прям там изменить
 
     return filtered[['FIO', 'Homework','Classroom']]
 
@@ -79,7 +80,7 @@ def Filter_topics_name(file_path):
 
 
 
-def Show_Amount_of_doppelstunden_ja_das_ist_Deutch(file_path):
+def count_lessons_per_subject(file_path):
     df = pd.read_excel(file_path)
     records = []
 
